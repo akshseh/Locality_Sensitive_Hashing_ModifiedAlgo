@@ -1,0 +1,174 @@
+//////////////// PRE //////////////////////
+
+Dataset Load Time = 6.889321
+Hyperplane  Time = 0.812749
+Hash matrix  Time = 66.125244
+Hash table  Time = 0.048639
+Nearest Samples to given query are:
+Similarity 0.961915 Sample column 100
+Similarity 0.961863 Sample column 665
+Similarity 0.958272 Sample column 166
+Similarity 0.939777 Sample column 350
+Similarity 0.889852 Sample column 558
+Similarity 0.856829 Sample column 757
+Similarity 0.836622 Sample column 991
+Similarity 0.771853 Sample column 1021
+Similarity 0.769805 Sample column 660
+Similarity 0.763296 Sample column 392
+Similarity 0.762887 Sample column 363
+Similarity 0.75936 Sample column 613
+Similarity 0.759046 Sample column 731
+Similarity 0.75664 Sample column 360
+Similarity 0.750098 Sample column 169
+
+Query Search Time = 0.849921
+Total Program Time = 76.743315
+
+////////////////////USING MANN_WHITNEY_U_TEST//////////////////////
+p=25
+Dataset used:  ../../data/dataset_2048.txt
+Dataset Load Time = 45.397085
+data[25][58037] - hyperplanes Hyperplane  Time = 0.135615
+data[25] [2048] - hash_matrix
+Hash matrix  Time = 65.751139
+Hash table  Time = 0.016563
+QueryDataset: ../../data/query_738.txt
+data[25] [1] - hash_matrix
+hash_table size: 15 | hyp_final = 4.      //1->SD
+Nearest Samples to given query are:
+k = 30  Similarity 0.996855 Sample column 312
+k = 29  Similarity 0.990418 Sample column 1289
+k = 28  Similarity 0.989516 Sample column 554
+k = 27  Similarity 0.988925 Sample column 390
+k = 26  Similarity 0.988863 Sample column 1207
+k = 25  Similarity 0.988739 Sample column 1766
+k = 24  Similarity 0.988446 Sample column 221
+k = 23  Similarity 0.988391 Sample column 1076
+k = 22  Similarity 0.988327 Sample column 1365
+k = 21  Similarity 0.98527 Sample column 1308
+k = 20  Similarity 0.984861 Sample column 1331
+k = 19  Similarity 0.984566 Sample column 1802
+k = 18  Similarity 0.984445 Sample column 1024
+k = 17  Similarity 0.984071 Sample column 998
+k = 16  Similarity 0.98343 Sample column 1191
+k = 15  Similarity 0.983205 Sample column 1812
+k = 14  Similarity 0.983195 Sample column 903
+k = 13  Similarity 0.983022 Sample column 391
+k = 12  Similarity 0.982998 Sample column 1239
+k = 11  Similarity 0.982848 Sample column 1961
+k = 10  Similarity 0.981187 Sample column 1126
+k = 9  Similarity 0.980644 Sample column 1199
+k = 8  Similarity 0.98041 Sample column 922
+k = 7  Similarity 0.98032 Sample column 609
+k = 6  Similarity 0.980315 Sample column 1478
+k = 5  Similarity 0.980256 Sample column 419
+k = 4  Similarity 0.980179 Sample column 49
+k = 3  Similarity 0.979457 Sample column 60
+k = 2  Similarity 0.979433 Sample column 1799
+k = 1  Similarity 0.979326 Sample column 723
+
+Query Search Time = 1.761951
+Total Program Time = 116.517057
+
+
+/////////////////////////////////////////////////////////
+p=25
+Dataset used:  ../../data/dataset_2048.txt
+Dataset Load Time = 44.071371
+data[25][58037] - hyperplanes Hyperplane  Time = 0.114079
+data[25] [2048] - hash_matrix
+Hash matrix  Time = 65.726931
+Hash table  Time = 0.037457
+QueryDataset: ../../data/query_738.txt
+data[25] [1] - hash_matrix
+hash_table size: 25 | hyp_final = 5          //0.5 * SD
+Nearest Samples to given query are:
+k = 30  Similarity 0.996871 Sample column 312
+k = 29  Similarity 0.990436 Sample column 1289
+k = 28  Similarity 0.989561 Sample column 554
+k = 27  Similarity 0.988952 Sample column 390
+k = 26  Similarity 0.988884 Sample column 1207
+k = 25  Similarity 0.988776 Sample column 1766
+k = 24  Similarity 0.988508 Sample column 221
+k = 23  Similarity 0.988405 Sample column 1076
+k = 22  Similarity 0.988376 Sample column 1365
+k = 21  Similarity 0.985282 Sample column 1308
+k = 20  Similarity 0.984882 Sample column 1331
+k = 19  Similarity 0.984575 Sample column 1802
+k = 18  Similarity 0.984425 Sample column 1024
+k = 17  Similarity 0.984132 Sample column 998
+k = 16  Similarity 0.983473 Sample column 1191
+k = 15  Similarity 0.983249 Sample column 903
+k = 14  Similarity 0.98322 Sample column 1812
+k = 13  Similarity 0.983075 Sample column 391
+k = 12  Similarity 0.982944 Sample column 1239
+k = 11  Similarity 0.982868 Sample column 1961
+k = 10  Similarity 0.981185 Sample column 1126
+k = 9  Similarity 0.980635 Sample column 1199
+k = 8  Similarity 0.980436 Sample column 922
+k = 7  Similarity 0.980375 Sample column 609
+k = 6  Similarity 0.980374 Sample column 1478
+k = 5  Similarity 0.980305 Sample column 419
+k = 4  Similarity 0.980146 Sample column 49
+k = 3  Similarity 0.979464 Sample column 60
+k = 2  Similarity 0.979435 Sample column 1799
+k = 1  Similarity 0.979347 Sample column 153
+
+Query Search Time = 2.860132
+Total Program Time = 116.406919
+
+//////////////////////////////////////////////////////
+
+Dataset used:  ../../data/dataset_2048.txt
+Dataset Load Time = 39.891898
+data[25][58037] - hyperplanes Hyperplane  Time = 0.125497
+data[25] [2048] - hash_matrix
+Hash matrix  Time = 62.923074
+Hash table  Time = 0.033691
+QueryDataset: ../../data/query_738.txt
+data[25] [1] - hash_matrix
+hash_table size: 8 | hyp_final = 3
+Nearest Samples to given query are:
+k = 40  Similarity 0.996872 Sample column 312
+k = 39  Similarity 0.990443 Sample column 1289
+k = 38  Similarity 0.98957  Sample column 554
+k = 37  Similarity 0.988958 Sample column 390
+k = 36  Similarity 0.988892 Sample column 1207
+k = 35  Similarity 0.988786 Sample column 1766
+k = 34  Similarity 0.988518 Sample column 221
+k = 33  Similarity 0.988412 Sample column 1076
+k = 32  Similarity 0.988377 Sample column 1365
+k = 31  Similarity 0.985289 Sample column 1308
+k = 30  Similarity 0.984888 Sample column 1331
+k = 29  Similarity 0.98458  Sample column 1802
+k = 28  Similarity 0.984427 Sample column 1024
+k = 27  Similarity 0.984143 Sample column 998
+k = 26  Similarity 0.983468 Sample column 1191 //
+k = 25  Similarity 0.983259 Sample column 903  //
+k = 24  Similarity 0.983221 Sample column 1812
+k = 23  Similarity 0.983085 Sample column 391
+k = 22  Similarity 0.982944 Sample column 1239
+k = 21  Similarity 0.982876 Sample column 1961
+k = 20  Similarity 0.981191 Sample column 1126
+k = 19  Similarity 0.980631 Sample column 1199
+k = 18  Similarity 0.980444 Sample column 922
+k = 17  Similarity 0.980385 Sample column 609
+k = 16  Similarity 0.980385 Sample column 1478
+k = 15  Similarity 0.980314 Sample column 419
+k = 14  Similarity 0.980152 Sample column 49
+k = 13  Similarity 0.979446 Sample column 60
+k = 12  Similarity 0.979416 Sample column 1799
+k = 11  Similarity 0.979358 Sample column 153
+k = 10  Similarity 0.979309 Sample column 723
+k = 9  Similarity 0.977587 Sample column 795
+k = 8  Similarity 0.977576 Sample column 1217
+k = 7  Similarity 0.976367 Sample column 1418
+k = 6  Similarity 0.97592 Sample column 430
+k = 5  Similarity 0.975833 Sample column 1320
+k = 4  Similarity 0.975457 Sample column 181
+k = 3  Similarity 0.975239 Sample column 331
+k = 2  Similarity 0.974484 Sample column 1539
+k = 1  Similarity 0.974329 Sample column 654
+
+Query Search Time = 2.668396
+Total Program Time = 108.924373

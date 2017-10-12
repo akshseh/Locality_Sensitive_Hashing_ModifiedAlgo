@@ -1,0 +1,49 @@
+///////////////basic LSH///////////////////
+Dataset Load Time = 42.916314
+Hyperplane  Time = 0.124901
+Hash matrix  Time = 90.130555
+Hash table  Time = 0.012213
+Nearest Samples to given query are:
+40 Similarity 0.996898 Sample column 312
+39 Similarity 0.990568 Sample column 1289
+38 Similarity 0.989568 Sample column 554
+37 Similarity 0.989049 Sample column 390
+36 Similarity 0.989027 Sample column 1207
+35 Similarity 0.988823 Sample column 1766
+34 Similarity 0.988768 Sample column 1076
+33 Similarity 0.988529 Sample column 221
+32 Similarity 0.988203 Sample column 1365
+31 Similarity 0.985551 Sample column 1308
+30 Similarity 0.985018 Sample column 1331
+29 Similarity 0.984686 Sample column 1802
+28 Similarity 0.984637 Sample column 1024
+27 Similarity 0.984145 Sample column 998
+26 Similarity 0.983539 Sample column 1239
+25 Similarity 0.98347 Sample column 1191
+24 Similarity 0.983252 Sample column 1812
+23 Similarity 0.983216 Sample column 903
+22 Similarity 0.983169 Sample column 1961
+21 Similarity 0.983056 Sample column 391
+20 Similarity 0.981348 Sample column 1126
+19 Similarity 0.98077 Sample column 1199
+18 Similarity 0.98059 Sample column 922
+17 Similarity 0.980563 Sample column 49
+16 Similarity 0.980406 Sample column 609
+15 Similarity 0.9803 Sample column 1478
+14 Similarity 0.980277 Sample column 419
+13 Similarity 0.979621 Sample column 60
+12 Similarity 0.979613 Sample column 1799
+11 Similarity 0.979508 Sample column 723
+10 Similarity 0.979339 Sample column 153
+9 Similarity 0.978013 Sample column 1217
+8 Similarity 0.9776 Sample column 795
+7 Similarity 0.976831 Sample column 181
+6 Similarity 0.976436 Sample column 1418
+5 Similarity 0.976345 Sample column 430
+4 Similarity 0.976169 Sample column 1320
+3 Similarity 0.975074 Sample column 331
+2 Similarity 0.975067 Sample column 654
+1 Similarity 0.974653 Sample column 784
+
+Query Search Time = 0.837874
+Total Program Time = 137.110215

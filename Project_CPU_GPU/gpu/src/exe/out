@@ -1,0 +1,19 @@
+Dataset Load Time = 25.161549
+Hyperplance kernel Compute Time = 0.001049
+Hyperplane with memory transfer Time = 0.739959
+Hash matrix kernel Compute Time = 0.337636
+Hash matrix  Time = 0.570682
+Hash table  Time = 0.007769
+Simalrity 1.000000 Sample column 0
+Simalrity 0.976970 Sample column 1
+Simalrity 0.930573 Sample column 397
+Simalrity 0.927309 Sample column 115
+Simalrity 0.925452 Sample column 384
+Simalrity 0.914484 Sample column 383
+Simalrity 0.913676 Sample column 116
+Simalrity 0.908803 Sample column 150
+Simalrity 0.905176 Sample column 382
+Simalrity 0.901203 Sample column 386
+
+Query Search Time = 3.102538
+Total Program Time = 48.132394
