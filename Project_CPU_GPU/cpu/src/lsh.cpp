@@ -173,6 +173,7 @@
 #include <array>
 #include <vector>
 #include <stdlib.h>
+#include <tr1/random>
 #include "lsh.h"
 ///MINE :D 
 using namespace std;
@@ -227,7 +228,7 @@ float ** lsh::hyper_plane(int p, int rows)
 	for(int i = 0; i < p; ++i)
     	data[i] = new float[rows];
 
-	std::default_random_engine generator;
+	std::tr1::default_random_engine generator;
 	std::normal_distribution<double> normal(0.0, 1.0);
 	std::uniform_real_distribution<double> distribution(0.0,1.0);    
     for (int i = 0;i < p;i++)
