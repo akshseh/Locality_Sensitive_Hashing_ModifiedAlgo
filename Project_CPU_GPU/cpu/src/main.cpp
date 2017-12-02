@@ -708,5 +708,3 @@ int main()
 	printf("Total Program Time = %f\n",tdur);
   	return 0;
 }
-
-
