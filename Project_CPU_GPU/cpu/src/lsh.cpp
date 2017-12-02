@@ -172,8 +172,8 @@
 #include <unordered_map>
 #include <array>
 #include <vector>
-#include <stdlib.h>
 #include <tr1/random>
+#include <stdlib.h>
 #include "lsh.h"
 ///MINE :D 
 using namespace std;
@@ -225,17 +225,20 @@ float ** lsh::read_data(std::string filename)
 float ** lsh::hyper_plane(int p, int rows)
 {
 	data = new float*[p];
-	for(int i = 0; i < p; ++i)
+	for(int i = 0; i < p; ++i){
     	data[i] = new float[rows];
+	}
+	// std::default_random_engine generator;
+	// std::normal_distribution<double> normal(0.0, 1.0);
 
-	std::tr1::default_random_engine generator;
-	std::normal_distribution<double> normal(0.0, 1.0);
-	std::uniform_real_distribution<double> distribution(0.0,1.0);    
+	std::mt19937 gen (time(0)); 
+	//std::uniform_real_distribution<double> distribution(0.0,1.0);    
     for (int i = 0;i < p;i++)
 	{
 		for (int j = 0; j < rows; j++)
 		{
-			data[i][j]=normal(generator); // generate random numbers
+			// data[i][j]=normal(generator); // generate random numbers
+			data[i][j] = gen()%99999 + 1;
 		}
 	}
 	cout << "data["<<p<< "]["<<rows<< "] - hyperplanes";
