@@ -506,10 +506,10 @@ int main()
 	long tstart = get_usecs();
 	
 	//VARIABLE STUFF
-	string path = "../../data/dataset_2048.txt";
-	int p = 25, rows = 58037,col = 2048;
+	string path = "../../../../../akarsha.txt";
+	int p = 50, rows = 58037,col = 25000;
 	string path1 = "../../data/query_738.txt";
-	int k = 40;
+	int k = 50;
 	
 
 	printf("p = %d\n",p);
@@ -620,6 +620,7 @@ int main()
 			}
 			i++;
 		}
+		printf("ehaa\n");
 		for (int k = 0; k < j; k++)
 		{
 			ranks[cosine_similarity(trans_data[samples[k]],query_trans[0],rows)]=samples[k];
@@ -637,6 +638,7 @@ int main()
 	// Key found part
 	else
 	{
+		printf("lalaa\n");
 		int temp = k;
 		std::vector<int> val = hash_tables[code1];
 	    while (!val.empty()) {
