@@ -195,7 +195,7 @@ float ** lsh::read_data(std::string filename)
 	int col=0;	
 	data = new float*[60000];
 	for(int i = 0; i < 60000; ++i)
-    	data[i] = new float[2071];
+    	data[i] = new float[25000];
 	
 	ifstream myfile (filename);
 	if (myfile.is_open())
