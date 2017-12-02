@@ -52,7 +52,7 @@ CFLAGS= \
 	-Wextra \
 	-Wformat \
 	-D_GLIBCXX_DEBUG\
-	-std=c++0x \
+	-std=c++03 \
 	-Wno-unused-parameter \
 	-Werror=format-security
 
