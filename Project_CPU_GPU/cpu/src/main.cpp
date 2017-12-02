@@ -482,7 +482,7 @@ int good_bad_Hyperplane(float **dataset,float **matrix,int p,int rows,int col,in
 	return mann_Whitney_U_test(near,far);	
 }
 
-long get_usecs (void)
+long get_usecs(void)
 {
    struct timeval t;
    gettimeofday(&t,NULL);
@@ -503,7 +503,7 @@ double cosine_similarity(float *A, float *B, unsigned int Vector_Length)
 }
 int main()
 {
-	long tstart = get_suecs();
+	long tstart = get_usecs();
 	
 	//VARIABLE STUFF
 	string path = "../../../../../akarsha.txt";
