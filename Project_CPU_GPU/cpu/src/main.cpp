@@ -435,7 +435,7 @@ int mann_Whitney_U_test2(vector<int> near,vector<int> far)
 //=====================================================================================
 int good_bad_Hyperplane(float **dataset,float **matrix,int p,int rows,int col,int num_hplane)
 {
-	int num_pts  = 100;
+	int num_pts  = 500;
 	//int point = 0,count = 0;
 	int point1 = 0;
 	int point2 = 0;
@@ -499,15 +499,15 @@ double cosine_similarity(float *A, float *B, unsigned int Vector_Length)
         denom_b += B[i] * B[i] ;
     }
     return dot / (sqrt(denom_a) * sqrt(denom_b)) ;
-}
 
+}
 int main()
 {
-	long tstart = get_usecs();
+	long tstart = get_suecs();
 	
 	//VARIABLE STUFF
 	string path = "../../../../../akarsha.txt";
-	int p = 50, rows = 58037,col = 25000;
+	int p = 50, rows = 24706,col = 50000;
 	string path1 = "../../data/query_738.txt";
 	int k = 50;
 	
