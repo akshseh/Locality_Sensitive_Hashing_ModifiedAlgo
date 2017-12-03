@@ -294,7 +294,7 @@ std::unordered_map<std::string, std::vector<int>  > lsh::hash_table(float **matr
 		for(int j = 0; j < p ; j++)
 		{
 			if(test_matrix[j] == 1)
-				code.append(std::ToString((int)matrix[j][i]));
+				code.append(ToString((int)matrix[j][i]));
 		}
 		//you get a 01000101011
 		//-------------------------------------------------------------------------------
@@ -317,3 +317,4 @@ std::unordered_map<std::string, std::vector<int>  > lsh::hash_table(float **matr
 
 	return table;
 }
+
