@@ -524,6 +524,7 @@ int main()
 	printf("Dataset used:  %s\n",path.c_str());
 	long start = get_usecs();
 	float ** dataset = lsh::read_data(path);
+	printf("Data Read..");
 	long end = get_usecs();
 	double dur = ((double)(end-start))/1000000;
 	printf("Dataset Load Time = %f\n",dur);
