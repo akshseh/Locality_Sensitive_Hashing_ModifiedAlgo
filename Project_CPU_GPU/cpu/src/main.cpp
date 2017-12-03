@@ -263,6 +263,7 @@
 #include <sys/time.h>
 #include <math.h>
 #include <iterator>
+#include <sstream>
 #include <algorithm>
 #include <map>
 
@@ -482,6 +483,13 @@ int good_bad_Hyperplane(float **dataset,float **matrix,int p,int rows,int col,in
 	return mann_Whitney_U_test(near,far);	
 }
 
+template <typename T>
+string ToString(T val)
+{
+    stringstream stream;
+    stream << val;
+    return stream.str();
+}
 long get_usecs(void)
 {
    struct timeval t;
@@ -582,7 +590,7 @@ int main()
 	for (int i = 0; i < p; i++)
 	{
 		if(test_matrix[i] == 1){ //threshold = 10
-			code.append(std::to_string((int)hash_matrix[i][0]));
+			code.append(ToString((int)hash_matrix[i][0]));
 		}
 	}
 	// Doing a K nearest search based on string compare function TODO cosine etc
