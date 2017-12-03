@@ -182,6 +182,14 @@ std::unordered_map<std::string, std::vector<int> > table;
 float** data;
 //	Print text on the screen 
 
+template <typename T>
+string ToString(T val)
+{
+    stringstream stream;
+    stream << val;
+    return stream.str();
+}
+
 void lsh::example_printf(int text)
 {
 	cout << text;
@@ -286,7 +294,7 @@ std::unordered_map<std::string, std::vector<int>  > lsh::hash_table(float **matr
 		for(int j = 0; j < p ; j++)
 		{
 			if(test_matrix[j] == 1)
-				code.append(std::to_string((int)matrix[j][i]));
+				code.append(std::ToString((int)matrix[j][i]));
 		}
 		//you get a 01000101011
 		//-------------------------------------------------------------------------------
@@ -309,4 +317,3 @@ std::unordered_map<std::string, std::vector<int>  > lsh::hash_table(float **matr
 
 	return table;
 }
-
