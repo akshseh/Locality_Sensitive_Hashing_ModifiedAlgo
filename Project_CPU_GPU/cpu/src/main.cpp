@@ -515,7 +515,7 @@ int main()
 	
 	//VARIABLE STUFF
 	string path = "../../../../../akarsha.txt";
-	int p = 20, rows = 24706,col = 50000;
+	int p = 20, rows = 24806,col = 50000;
 	string path1 = "../../data/query_738.txt";
 	int k = 20;
 	
