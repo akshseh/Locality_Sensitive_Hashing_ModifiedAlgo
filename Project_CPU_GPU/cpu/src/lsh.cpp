@@ -202,11 +202,16 @@ float ** lsh::read_data(std::string filename)
 	string line;
 	int row=0;
 	int col=0;	
-	data = new float*[24806];
-	for(int i = 0; i < 24806; ++i){
-    		data[i] = new float[50000];
-	}
+	// data = new float*[24806];
+	data = new float*[60000];
+
+	// for(int i = 0; i < 24806; ++i)
+	for(int i = 0; i < 60000; ++i)
+    	// data[i] = new float[50000];
+    	data[i] = new float[2048];
+	
 	ifstream myfile (filename);
+
 	if (myfile.is_open())
 	{
 		while ( getline (myfile,line) )
