@@ -202,10 +202,10 @@ float ** lsh::read_data(std::string filename)
 	string line;
 	int row=0;
 	int col=0;	
-	data = new float*[24706];
-	for(int i = 0; i < 24706; ++i)
-    	data[i] = new float[50000];
-	
+	data = new float*[24806];
+	for(int i = 0; i < 24806; ++i){
+    		data[i] = new float[50000];
+	}
 	ifstream myfile (filename);
 	if (myfile.is_open())
 	{
