@@ -514,17 +514,21 @@ int main()
 	long tstart = get_usecs();
 	
 	//VARIABLE STUFF
-	string path = "../../../../../akarsha.txt";
-	int p = 20, rows = 24806,col = 50000;
-	string path1 = "../../data/query_738.txt";
-	int k = 20;
+	string path = "../../../../../dataset_2048.txt";
+	// string path = "../../../../../akarsha.txt";
+	int p = 20, rows = =58307,col=2048;
+	// int p = 20, rows = 24806,col = 50000;
+	string path1 = "../../../../../query_738.txt";
+	// string path1 = "../../data/query_738.txt";
+	int k = 40;
 	
 
 	printf("p = %d\n",p);
 	printf("Dataset used:  %s\n",path.c_str());
+
 	long start = get_usecs();
 	float ** dataset = lsh::read_data(path);
-	printf("Data Read..");
+	printf("READ !! \n");
 	long end = get_usecs();
 	double dur = ((double)(end-start))/1000000;
 	printf("Dataset Load Time = %f\n",dur);
