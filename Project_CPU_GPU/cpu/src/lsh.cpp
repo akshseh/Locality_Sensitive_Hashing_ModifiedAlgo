@@ -172,7 +172,6 @@
 #include <unordered_map>
 #include <array>
 #include <vector>
-#include <tr1/random>
 #include <stdlib.h>
 #include "lsh.h"
 ///MINE :D 
@@ -181,14 +180,6 @@ std::unordered_map<std::string, std::vector<int> > table;
 
 float** data;
 //	Print text on the screen 
-
-template <typename T>
-string ToString(T val)
-{
-    stringstream stream;
-    stream << val;
-    return stream.str();
-}
 
 void lsh::example_printf(int text)
 {
@@ -202,16 +193,11 @@ float ** lsh::read_data(std::string filename)
 	string line;
 	int row=0;
 	int col=0;	
-	// data = new float*[24806];
-	data = new float*[60000];
-
-	// for(int i = 0; i < 24806; ++i)
-	for(int i = 0; i < 60000; ++i)
-    	// data[i] = new float[50000];
-    	data[i] = new float[2048];
+	data = new float*[24706];
+	for(int i = 0; i < 24706; ++i)
+    	data[i] = new float[50000];
 	
 	ifstream myfile (filename);
-
 	if (myfile.is_open())
 	{
 		while ( getline (myfile,line) )
@@ -227,6 +213,7 @@ float ** lsh::read_data(std::string filename)
 	  		row++;
 		}
 		myfile.close();
+		printf("File Read ! \n");
 	}
 	else cout << "Unable to open file"; 
 	// cout << row << endl << col;
@@ -238,20 +225,17 @@ float ** lsh::read_data(std::string filename)
 float ** lsh::hyper_plane(int p, int rows)
 {
 	data = new float*[p];
-	for(int i = 0; i < p; ++i){
+	for(int i = 0; i < p; ++i)
     	data[i] = new float[rows];
-	}
-	// std::default_random_engine generator;
-	// std::normal_distribution<double> normal(0.0, 1.0);
 
-	std::mt19937 gen (time(0)); 
-	//std::uniform_real_distribution<double> distribution(0.0,1.0);    
+	std::default_random_engine generator;
+	std::normal_distribution<double> normal(0.0, 1.0);
+	std::uniform_real_distribution<double> distribution(0.0,1.0);    
     for (int i = 0;i < p;i++)
 	{
 		for (int j = 0; j < rows; j++)
 		{
-			// data[i][j]=normal(generator); // generate random numbers
-			data[i][j] = gen()%99999 + 1;
+			data[i][j]=normal(generator); // generate random numbers
 		}
 	}
 	cout << "data["<<p<< "]["<<rows<< "] - hyperplanes";
@@ -299,7 +283,7 @@ std::unordered_map<std::string, std::vector<int>  > lsh::hash_table(float **matr
 		for(int j = 0; j < p ; j++)
 		{
 			if(test_matrix[j] == 1)
-				code.append(ToString((int)matrix[j][i]));
+				code.append(std::to_string((int)matrix[j][i]));
 		}
 		//you get a 01000101011
 		//-------------------------------------------------------------------------------
@@ -322,4 +306,3 @@ std::unordered_map<std::string, std::vector<int>  > lsh::hash_table(float **matr
 
 	return table;
 }
-
