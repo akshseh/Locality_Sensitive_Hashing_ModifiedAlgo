@@ -263,7 +263,6 @@
 #include <sys/time.h>
 #include <math.h>
 #include <iterator>
-#include <sstream>
 #include <algorithm>
 #include <map>
 
@@ -436,7 +435,7 @@ int mann_Whitney_U_test2(vector<int> near,vector<int> far)
 //=====================================================================================
 int good_bad_Hyperplane(float **dataset,float **matrix,int p,int rows,int col,int num_hplane)
 {
-	int num_pts  = 500;
+	int num_pts  = 100;
 	//int point = 0,count = 0;
 	int point1 = 0;
 	int point2 = 0;
@@ -483,14 +482,7 @@ int good_bad_Hyperplane(float **dataset,float **matrix,int p,int rows,int col,in
 	return mann_Whitney_U_test(near,far);	
 }
 
-template <typename T>
-string ToString(T val)
-{
-    stringstream stream;
-    stream << val;
-    return stream.str();
-}
-long get_usecs(void)
+long get_usecs (void)
 {
    struct timeval t;
    gettimeofday(&t,NULL);
@@ -507,28 +499,27 @@ double cosine_similarity(float *A, float *B, unsigned int Vector_Length)
         denom_b += B[i] * B[i] ;
     }
     return dot / (sqrt(denom_a) * sqrt(denom_b)) ;
-
 }
+
 int main()
 {
 	long tstart = get_usecs();
 	
 	//VARIABLE STUFF
-	string path = "../../../../../dataset_2048.txt";
-	// string path = "../../../../../akarsha.txt";
-	int p = 20, rows =58307,col=2048;
-	// int p = 20, rows = 24806,col = 50000;
-	string path1 = "../../../../../query_738.txt";
+	// string path = "../../data/dataset_2048.txt";
+	// int p = 25, rows = 58037,col = 2048;
+	string path = "../../../../../akarsha.txt";
+ // -	int p = 50, rows = 58037,col = 25000;
+ +	int p = 50, rows = 24706,col = 50000;
 	// string path1 = "../../data/query_738.txt";
-	int k = 40;
+	string path1 = "../../../../../query_738.txt";
+	int k = 50;
 	
 
 	printf("p = %d\n",p);
 	printf("Dataset used:  %s\n",path.c_str());
-
 	long start = get_usecs();
 	float ** dataset = lsh::read_data(path);
-	printf("READ !! \n");
 	long end = get_usecs();
 	double dur = ((double)(end-start))/1000000;
 	printf("Dataset Load Time = %f\n",dur);
@@ -595,7 +586,7 @@ int main()
 	for (int i = 0; i < p; i++)
 	{
 		if(test_matrix[i] == 1){ //threshold = 10
-			code.append(ToString((int)hash_matrix[i][0]));
+			code.append(std::to_string((int)hash_matrix[i][0]));
 		}
 	}
 	// Doing a K nearest search based on string compare function TODO cosine etc
@@ -633,7 +624,6 @@ int main()
 			}
 			i++;
 		}
-		printf("ehaa\n");
 		for (int k = 0; k < j; k++)
 		{
 			ranks[cosine_similarity(trans_data[samples[k]],query_trans[0],rows)]=samples[k];
@@ -651,7 +641,6 @@ int main()
 	// Key found part
 	else
 	{
-		printf("lalaa\n");
 		int temp = k;
 		std::vector<int> val = hash_tables[code1];
 	    while (!val.empty()) {
