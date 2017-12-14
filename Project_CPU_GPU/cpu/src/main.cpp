@@ -510,10 +510,10 @@ int main()
 	// int p = 25, rows = 58037,col = 2048;
 	string path = "../../../../../akarsha.txt";
  // -	int p = 50, rows = 58037,col = 25000;
- +	int p = 50, rows = 24706,col = 50000;
+	int p = 20, rows = 24706,col = 50000;
 	// string path1 = "../../data/query_738.txt";
 	string path1 = "../../../../../query_738.txt";
-	int k = 50;
+	int k = 40;
 	
 
 	printf("p = %d\n",p);
