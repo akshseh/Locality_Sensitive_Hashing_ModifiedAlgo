@@ -65,7 +65,7 @@ namespace lsh{
 	 *	@param text - Multiply hyperplane and data matrix to generate the hash code
 	 */
 	// float ** hash_matrix(float **data , float ** hyperplane,int p ,int n, int rows);
-	float ** hash_matrix(float **dataset, float **hyperplane,int p ,int col, int rows);
+	float ** hash_matrix(int whichone,float **dataset, float **hyperplane,int p ,int col, int rows);
 
 	std::unordered_map< std::string, std::vector<int> > hash_table(float **matrix, int* test_matrix, int rows, int col,int p);
 
