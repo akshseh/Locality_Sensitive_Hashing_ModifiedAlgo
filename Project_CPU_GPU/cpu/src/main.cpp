@@ -433,21 +433,21 @@ int mann_Whitney_U_test2(vector<int> near,vector<int> far)
 
 //=====================================================================================
 //=====================================================================================
-int good_bad_Hyperplane(float **dataset,float **matrix,int p,int rows,int col,int num_hplane)
+int good_bad_Hyperplane(int num_pts,int ix,float **dataset,float **matrix,int p,int rows,int col,int num_hplane)
 {
-	int num_pts  = 100;
+	// int num_pts  = 100;
 	//int point = 0,count = 0;
 	int point1 = 0;
 	int point2 = 0;
 	srand (time(NULL));
 	float sum = 0, hamm_dist=0;
-	
+	int temp = 
 	vector< pair <float,int> > array;
-	
+	int temp = ix*5000;
 	for (int i = 0; i < num_pts; ++i)
 	{
-		point1 = rand()%col;
-		point2 = rand()%col;
+		point1 = rand()%col ;
+		point2 = rand()%col ;
 		sum = 0,hamm_dist=0;
 		for (int j = 0; j < col; ++j)
 		{
@@ -457,7 +457,7 @@ int good_bad_Hyperplane(float **dataset,float **matrix,int p,int rows,int col,in
 		}
 		
 		// hamm dist - should be zero for closer points and 1 for far points.. either 0 or 1
-		hamm_dist = abs(matrix[num_hplane][point1] - matrix[num_hplane][point2]);
+		hamm_dist = abs(matrix[num_hplane][point1+temp] - matrix[num_hplane][point2+temp]);
 		array.push_back( make_pair(sum,hamm_dist) );
 	}
 	sort(array.begin(),array.end());
@@ -508,58 +508,78 @@ int main()
 	//VARIABLE STUFF
 	// string path = "../../data/dataset_2048.txt";
 	// int p = 25, rows = 58037,col = 2048;
-	string path = "../../../../../akarsha.txt";
- // -	int p = 50, rows = 58037,col = 25000;
-	int p = 20, rows = 24706,col = 50000;
-	// string path1 = "../../data/query_738.txt";
-	string path1 = "../../../../../query_738.txt";
-	int k = 40;
-	
 
-	printf("p = %d\n",p);
-	printf("Dataset used:  %s\n",path.c_str());
-	long start = get_usecs();
-	float ** dataset = lsh::read_data(path);
-	long end = get_usecs();
-	double dur = ((double)(end-start))/1000000;
-	printf("Dataset Load Time = %f\n",dur);
-	//  TODO no rows are hardcorded
-	// p = number of hyperplanes created ie. k !!
-	// col = dimensionality
-	// rows = number of datapoints 
-	
-	float ** trans_data;
-	trans_data = new float*[col];
-	for(int i = 0; i < col; ++i)
-    	trans_data[i] = new float[rows];
-	//==========HYPERPLANE========================== 
-	for(int i = 0; i < rows; ++i)
-		for(int j = 0; j < col; ++j)
-            trans_data[j][i]=dataset[i][j];
-	
+string path = "../../../../../parta";
+int p = 20, rows = 24706,col = 5000;
+	//HYPERPLANE 
 	start = get_usecs();
 	float ** hyperplane= lsh::hyper_plane(p,rows);    
 	end = get_usecs();
 	dur = ((double)(end-start))/1000000;
 	printf(" Hyperplane  Time = %f\n",dur);
+	//HPERPLANE Created
+
+	char next_char = 'a';
 	
-	//=======HASH MATRIX================================
-	start = get_usecs();
-	float ** hash_matrix = lsh::hash_matrix(dataset,hyperplane,p,col,rows);
-	end = get_usecs();
-	dur = ((double)(end-start))/1000000;
-    printf("Hash matrix  Time = %f\n",dur);
-   
+	for (int ix = 0; ix < 10; ++ix)
+	{
+
+		path.push_back(next_char);
+		next_char = next_char+1;
+		// string path = "../../../../../akarsha.txt";
+	 // -	int p = 50, rows = 49657,col = 25000;
+		
+		// string path1 = "../../data/query_738.txt";
+		string path1 = "../../../../../query_738.txt";
+		int k = 40;
+		
+
+		printf("p = %d\n",p);
+		printf("Dataset used:  %s\n",path.c_str());
+		long start = get_usecs();
+		float ** dataset = lsh::read_data(path);
+		path.pop_back();
+		long end = get_usecs();
+		double dur = ((double)(end-start))/1000000;
+		printf("Dataset Load Time = %f\n",dur);
+		//  TODO no rows are hardcorded
+		// p = number of hyperplanes created ie. k !!
+		// col = dimensionality
+		// rows = number of datapoints 
+		
+		float ** trans_data;
+		trans_data = new float*[col];
+		for(int i = 0; i < col; ++i)
+	    	trans_data[i] = new float[rows];
+		//==========HYPERPLANE========================== 
+		for(int i = 0; i < rows; ++i)
+			for(int j = 0; j < col; ++j)
+	            trans_data[j][i]=dataset[i][j];
+		
+		// start = get_usecs();
+		// float ** hyperplane= lsh::hyper_plane(p,rows);    
+		// end = get_usecs();
+		// dur = ((double)(end-start))/1000000;
+		// printf(" Hyperplane  Time = %f\n",dur);
+		
+		//=======HASH MATRIX================================
+		start = get_usecs();
+		float ** hash_matrix = lsh::hash_matrix(ix,dataset,hyperplane,p,col,rows);
+		end = get_usecs();
+		dur = ((double)(end-start))/1000000;
+	    printf("Hash matrix  Time = %f\n",dur);
+	}  
     //MY TESTING!!
+	// Problem : col is 5000, that means random are taken from only the last 5000.
     int test_matrix[p];
 	int hyp_final=0;
 	for (int i = 0; i < p; ++i)
 	{
-		test_matrix[i] = good_bad_Hyperplane(dataset,hash_matrix,p,rows,col,i);
+		test_matrix[i] = good_bad_Hyperplane(200,9,dataset,hash_matrix,p,rows,col,i);
 		if(test_matrix[i] == 1)
 			hyp_final ++;
 	}
-
+	col = 49657;
 	//========HASH TABLES================================
 	start = get_usecs();
 	std::unordered_map<std::string, std::vector<int> > hash_tables;
@@ -567,6 +587,8 @@ int main()
 	end = get_usecs();
 	dur = ((double)(end-start))/1000000;
 	printf("Hash table  Time = %f\n",dur);
+	
+
 	
 	//=========QUERY===============================
 	std::unordered_map<std::string, std::vector<int> >:: iterator itr;
@@ -589,6 +611,10 @@ int main()
 			code.append(std::to_string((int)hash_matrix[i][0]));
 		}
 	}
+	
+
+//////////CREATE A COMMON HASH_TABLE////////////////////////////////////
+
 	// Doing a K nearest search based on string compare function TODO cosine etc
 	int rank[hash_tables.size()];
 	cout << "hash_table size: "<< hash_tables.size() << " | "<<"hyp_final = "<<hyp_final << endl;
