@@ -195,7 +195,7 @@ float ** lsh::read_data(std::string filename)
 	int col=0;	
 	data = new float*[24706];
 	for(int i = 0; i < 24706; ++i)
-    	data[i] = new float[50000];
+    	data[i] = new float[5000];
 	
 	ifstream myfile (filename);
 	if (myfile.is_open())
@@ -242,13 +242,16 @@ float ** lsh::hyper_plane(int p, int rows)
 	// p hyperplanes created here.. dimensionality = rows !!  
 	return data;
 }
+// float ** lsh::getfull_matrix(){
+// 	return data;
+// }
 //determining left or right for one hyperplane
-float ** lsh::hash_matrix(float **dataset, float **hyperplane,int p ,int col, int rows)
+float ** lsh::hash_matrix(int whichone,float **dataset, float **hyperplane,int p ,int col, int rows)
 {
 	// int count_col=0,row_col=0,count=0;
 	for(int i = 0; i < p; i++)
 	{
-		for(int j = 0; j < col; j++)
+		for(int j = 0 + whichone*5000; j < col + whichone*5000; j++)
 		{
 			float sum=0;
             for(int k = 0; k < rows; k++)
