@@ -301,14 +301,15 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 	vector<pair <int,int> > arr;
 	// two arrays - combined into one and sorted into ascending order
 	// keep information about where did it come from
-	for (int i = 0; i < near_size; ++i){
-		// printf("|%d",i);
+	for (int i = 0; i < near_size; ++i)
+	{
 		arr.push_back(make_pair(near[i],2));
 	}
-	for (int i = 0; i < far_size; ++i){
-		// printf("-%d",i);
-		arr.push_back(make_pair(far[i],1));}
-		
+	for (int i = 0; i < far_size; ++i)
+	{
+		arr.push_back(make_pair(far[i],1));
+	}
+
 	sort(arr.begin(),arr.end());
 	// ranks of first sample elements are summarized
 	printf(" lola-%d \n",arr.size());
@@ -318,6 +319,8 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 	// after sorting, each element replaced by its rank 1 - N+M
 	while(i < tot_size)
 	{
+		if(i > 170)
+			printf("%d ",i);
 		// printf("int\n");
 		if(arr[i].first == num)
 		{
@@ -349,7 +352,7 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 	int U1, U2, U;
 	U1 = (near_size*far_size) + ((near_size*(near_size+1))/2) - sum1;
 	U2 = (near_size*far_size)+ ((far_size*(far_size+1))/2) - sum2;
-	// printf("hola - ");
+	printf("hola - ");
 	U = min(U1,U2);
 	int mean_U = 0.5 * far_size * near_size;
 	//float alpha = 0.05; std deviation
