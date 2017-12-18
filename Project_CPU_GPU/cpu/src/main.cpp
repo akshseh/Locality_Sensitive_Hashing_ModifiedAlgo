@@ -607,7 +607,7 @@ int main()
 
 	// generating the hash code for the query
  	std::string code="";
-	hash_matrix = lsh::hash_matrix(query,hyperplane,p,1,rows);
+	hash_matrix = lsh::hash_matrix(0,query,hyperplane,p,1,rows);
 	for (int i = 0; i < p; i++)
 	{
 		if(test_matrix[i] == 1){ //threshold = 10
