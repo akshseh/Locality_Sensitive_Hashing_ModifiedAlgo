@@ -441,7 +441,7 @@ int good_bad_Hyperplane(int num_pts,int ix,float **dataset,float **matrix,int p,
 	int point2 = 0;
 	srand (time(NULL));
 	float sum = 0, hamm_dist=0;
-	int temp = 
+	// int temp = 
 	vector< pair <float,int> > array;
 	int temp = ix*5000;
 	for (int i = 0; i < num_pts; ++i)
@@ -512,15 +512,16 @@ int main()
 string path = "../../../../../parta";
 int p = 20, rows = 24706,col = 5000;
 	//HYPERPLANE 
-	start = get_usecs();
+	long start = get_usecs();
 	float ** hyperplane= lsh::hyper_plane(p,rows);    
-	end = get_usecs();
-	dur = ((double)(end-start))/1000000;
+	long end = get_usecs();
+	double dur = ((double)(end-start))/1000000;
+		
 	printf(" Hyperplane  Time = %f\n",dur);
 	//HPERPLANE Created
 
 	char next_char = 'a';
-	
+	int k = 40;
 	for (int ix = 0; ix < 10; ++ix)
 	{
 
@@ -531,16 +532,16 @@ int p = 20, rows = 24706,col = 5000;
 		
 		// string path1 = "../../data/query_738.txt";
 		string path1 = "../../../../../query_738.txt";
-		int k = 40;
+		
 		
 
 		printf("p = %d\n",p);
 		printf("Dataset used:  %s\n",path.c_str());
-		long start = get_usecs();
+		start = get_usecs();
 		float ** dataset = lsh::read_data(path);
 		path.pop_back();
-		long end = get_usecs();
-		double dur = ((double)(end-start))/1000000;
+		end = get_usecs();
+		dur = ((double)(end-start))/1000000;
 		printf("Dataset Load Time = %f\n",dur);
 		//  TODO no rows are hardcorded
 		// p = number of hyperplanes created ie. k !!
@@ -652,6 +653,8 @@ int p = 20, rows = 24706,col = 5000;
 		}
 		for (int k = 0; k < j; k++)
 		{
+			//Problem - While finding the cosine simiarity - need the whole dataset
+
 			ranks[cosine_similarity(trans_data[samples[k]],query_trans[0],rows)]=samples[k];
 			cout << samples[k]<<"\t"<<cosine_similarity(trans_data[k],query_trans[0],rows)<<"\n";
 		}
