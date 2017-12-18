@@ -294,8 +294,8 @@ int GetHammingDistance(const std::string a, const std::string b)
 int mann_Whitney_U_test(vector<int> near,vector<int> far)
 {
 	printf(" g ");
-	int near_size = far.size();
-	int far_size = near.size();
+	int near_size = near.size();
+	int far_size = far.size();
 	int tot_size = near_size + far_size;
 	printf("%d %d %d\n",near_size,far_size,tot_size);
 	vector<pair <int,int> > arr;
@@ -308,6 +308,7 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 	for (int i = 0; i < far_size; ++i){
 		printf("-%d",i);
 		arr.push_back(make_pair(far[i],1));}
+		
 	sort(arr.begin(),arr.end());
 	// ranks of first sample elements are summarized
 	printf(" lola-%d \n",arr.size());
