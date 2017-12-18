@@ -509,8 +509,8 @@ int main()
 	// string path = "../../data/dataset_2048.txt";
 	// int p = 25, rows = 58037,col = 2048;
 
-string path = "../../../../../parta";
-int p = 20, rows = 24706,col = 5000;
+	string path = "../../../../../parta";
+	int p = 20, rows = 24706,col = 5000;
 	//HYPERPLANE 
 	long start = get_usecs();
 	float ** hyperplane= lsh::hyper_plane(p,rows);    
@@ -522,6 +522,10 @@ int p = 20, rows = 24706,col = 5000;
 
 	char next_char = 'a';
 	int k = 40;
+	float ** dataset;
+	float ** trans_data;
+	float ** hash_matrix;
+	string path1 = "../../../../../query_738.txt";
 	for (int ix = 0; ix < 10; ++ix)
 	{
 
@@ -531,14 +535,13 @@ int p = 20, rows = 24706,col = 5000;
 	 // -	int p = 50, rows = 49657,col = 25000;
 		
 		// string path1 = "../../data/query_738.txt";
-		string path1 = "../../../../../query_738.txt";
 		
 		
 
 		printf("p = %d\n",p);
 		printf("Dataset used:  %s\n",path.c_str());
 		start = get_usecs();
-		float ** dataset = lsh::read_data(path);
+		dataset = lsh::read_data(path);
 		path.pop_back();
 		end = get_usecs();
 		dur = ((double)(end-start))/1000000;
@@ -548,7 +551,6 @@ int p = 20, rows = 24706,col = 5000;
 		// col = dimensionality
 		// rows = number of datapoints 
 		
-		float ** trans_data;
 		trans_data = new float*[col];
 		for(int i = 0; i < col; ++i)
 	    	trans_data[i] = new float[rows];
@@ -565,7 +567,7 @@ int p = 20, rows = 24706,col = 5000;
 		
 		//=======HASH MATRIX================================
 		start = get_usecs();
-		float ** hash_matrix = lsh::hash_matrix(ix,dataset,hyperplane,p,col,rows);
+		hash_matrix = lsh::hash_matrix(ix,dataset,hyperplane,p,col,rows);
 		end = get_usecs();
 		dur = ((double)(end-start))/1000000;
 	    printf("Hash matrix  Time = %f\n",dur);
