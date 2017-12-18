@@ -301,10 +301,13 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 	vector<pair <int,int> > arr;
 	// two arrays - combined into one and sorted into ascending order
 	// keep information about where did it come from
-	for (int i = 0; i < near_size; ++i)
+	for (int i = 0; i < near_size; ++i){
+		printf("|%d",i);
 		arr.push_back(make_pair(near[i],2));
-	for (int i = 0; i < far_size; ++i)
-		arr.push_back(make_pair(far[i],1));
+	}
+	for (int i = 0; i < far_size; ++i){
+		printf("-%d",i);
+		arr.push_back(make_pair(far[i],1));}
 	sort(arr.begin(),arr.end());
 	// ranks of first sample elements are summarized
 	printf(" lola-%d \n",arr.size());
