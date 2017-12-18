@@ -307,13 +307,14 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 		arr.push_back(make_pair(far[i],1));
 	sort(arr.begin(),arr.end());
 	// ranks of first sample elements are summarized
-
+	printf(" lola-%d \n",arr.size());
 	int i = 0,count = 0,num = arr[0].first;
 	vector<int> rank;
 	printf(" y ");
 	// after sorting, each element replaced by its rank 1 - N+M
 	while(i < tot_size)
 	{
+		printf("int\n");
 		if(arr[i].first == num)
 		{
 			count++;
