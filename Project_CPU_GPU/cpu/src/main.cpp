@@ -296,8 +296,8 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 	printf(" g ");
 	int near_size = far.size();
 	int far_size = near.size();
-
 	int tot_size = near_size + far_size;
+	printf("%d %d %d\n",near_size,far_size,tot_size);
 	vector<pair <int,int> > arr;
 	// two arrays - combined into one and sorted into ascending order
 	// keep information about where did it come from
@@ -310,7 +310,7 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 
 	int i = 0,count = 0,num = arr[0].first;
 	vector<int> rank;
-
+	printf(" y ");
 	// after sorting, each element replaced by its rank 1 - N+M
 	while(i < tot_size)
 	{
@@ -329,7 +329,7 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 		}
 		i++;
 	}
-
+	printf("okay");
 	int sum1 = 0, sum2 = 0;
 	for (int i = 0; i < tot_size; ++i)
 	{
