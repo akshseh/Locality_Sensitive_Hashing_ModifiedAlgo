@@ -319,8 +319,8 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 	// after sorting, each element replaced by its rank 1 - N+M
 	while(i < tot_size)
 	{
-		if(i > 170)
-			printf("%d ",i);
+		
+		printf("%d ",i);
 		// printf("int\n");
 		if(arr[i].first == num)
 		{
