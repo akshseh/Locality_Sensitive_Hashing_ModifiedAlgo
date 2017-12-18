@@ -293,6 +293,7 @@ int GetHammingDistance(const std::string a, const std::string b)
 // RETURNS 1 for good hyp plane and 0 for bad.
 int mann_Whitney_U_test(vector<int> near,vector<int> far)
 {
+	printf(" g ");
 	int near_size = far.size();
 	int far_size = near.size();
 
@@ -328,6 +329,7 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 		}
 		i++;
 	}
+
 	int sum1 = 0, sum2 = 0;
 	for (int i = 0; i < tot_size; ++i)
 	{
@@ -342,7 +344,7 @@ int mann_Whitney_U_test(vector<int> near,vector<int> far)
 	int U1, U2, U;
 	U1 = (near_size*far_size) + ((near_size*(near_size+1))/2) - sum1;
 	U2 = (near_size*far_size)+ ((far_size*(far_size+1))/2) - sum2;
-
+	printf("hola - ");
 	U = min(U1,U2);
 	int mean_U = 0.5 * far_size * near_size;
 	//float alpha = 0.05; std deviation
@@ -479,6 +481,7 @@ int good_bad_Hyperplane(int num_pts,int ix,float **dataset,float **matrix,int p,
 	// perform rank whitney U test
 	
 	//their hashes compared..
+	printf("call_man - ");
 	return mann_Whitney_U_test(near,far);	
 }
 
@@ -578,6 +581,7 @@ int main()
 	int hyp_final=0;
 	for (int i = 0; i < p; ++i)
 	{
+		printf("lala\n");
 		test_matrix[i] = good_bad_Hyperplane(200,9,dataset,hash_matrix,p,rows,col,i);
 		if(test_matrix[i] == 1)
 			hyp_final ++;
