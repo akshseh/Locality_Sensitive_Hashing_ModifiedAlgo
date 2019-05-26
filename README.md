@@ -1,3 +1,6 @@
+# Locality Sensitive Hashing
+A technique used to find nearest neighbours for searching in high dimensions.
+
 ### How to setup the project:
 
 - There are 3 version of the code and each folder has 3 codes cpu,gpu and testing of which cpu and testing are same in all and hardcoded with values.
